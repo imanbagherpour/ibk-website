@@ -79,11 +79,17 @@ h1,h2,h3,h4,p,ul,ol,figure,blockquote{margin:0}
 .hero__meta{display:flex;flex-wrap:wrap;gap:var(--space-2) var(--space-5);margin-top:var(--space-5)}
 .page-hero{padding:var(--hero-pad) 0 calc(var(--section-pad) * .6)}
 .page-hero .hero__inner{max-width:48rem}
+/* Split hero: text left, panel of row cards right (full width, panel bleeds to the edge) */
+.hero--split{padding:0;display:grid;grid-template-columns:1.1fr .9fr;align-items:stretch}
+.hero__main{display:grid;gap:var(--space-5);align-content:center;padding:var(--section-pad) var(--gutter) var(--section-pad) max(var(--gutter),calc((100vw - var(--container)) / 2 + var(--gutter)))}
+.hero__panel{background:var(--color-surface);padding:var(--space-7) var(--gutter);display:grid;gap:var(--space-4);align-content:center}
+@media (max-width:900px){.hero--split{grid-template-columns:1fr}.hero__main{padding:var(--space-8) var(--gutter)}}
 
 /* ---------- Cards ---------- */
 .card{background:var(--color-card);border:var(--border-width) solid var(--color-border);border-radius:var(--radius-card);padding:var(--space-6);display:grid;gap:var(--space-3);align-content:start;box-shadow:var(--shadow-card)}
 .card__icon{width:40px;height:40px;border-radius:var(--radius-mark);background:var(--color-accent-soft);color:var(--color-accent-strong);display:grid;place-items:center;font-family:var(--font-label);font-size:var(--text-small)}
 .card--feature{min-height:100%}
+.card--row{grid-template-columns:auto 1fr;align-items:center;gap:var(--space-4);padding:var(--space-5)}
 
 /* ---------- Steps ---------- */
 .steps{counter-reset:step;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--space-5)}
